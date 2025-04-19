@@ -69,15 +69,25 @@ baiduPan: https://pan.baidu.com/s/1vLtNMNy_mqAOlz_79gO60w passward：CAGM
 
 @article{WANG2025110777,
 title = {Covariance Attention Guidance Mamba Hashing for cross-modal retrieval},
+
 journal = {Engineering Applications of Artificial Intelligence},
+
 volume = {152},
+
 pages = {110777},
+
 year = {2025},
+
 issn = {0952-1976},
+
 doi = {https://doi.org/10.1016/j.engappai.2025.110777},
+
 url = {https://www.sciencedirect.com/science/article/pii/S0952197625007778},
+
 author = {Gang Wang and Shuli Cheng and Anyu Du and Qiang Zou},
+
 keywords = {Artificial intelligence, Multimedia technology, Cross-modal hashing, Multi-feature fusion, Covariance attention},
+
 }
 
 

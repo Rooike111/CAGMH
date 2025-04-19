@@ -26,22 +26,27 @@ for path_id in file_list:
     with open(path, "r") as f:
         for item in f:
             item = item.strip()
+            print(item)
             if item not in label_dict:
                 label = np.zeros(len(file_list))
                 label[class_index[path_id]] = 1
                 label_dict.update({item: label})
             else:
                 # print()
+                print(class_index)
+                exit()
                 label_dict[item][class_index[path_id]] = 1
 
-# print(label_dict)
+print("label_dict",label_dict)
 print("create label:", len(label_dict))
 keys = list(label_dict.keys())
 keys.sort()
 
 labels = []
+
 for key in keys:
     labels.append(label_dict[key])
+
 print("labels created:", len(labels))
 labels = {"category": labels}
 
@@ -75,9 +80,9 @@ print("captions created:", len(captions))
 captions = {"caption": captions}
 #print(captions)
 
-scio.savemat("/home/wangg/code/LCDSPH/dataset/flickr25k/index.mat", index)
-scio.savemat("/home/wangg/code/LCDSPH/dataset/flickr25k/caption.mat", captions)
-scio.savemat("/home/wangg/code/LCDSPH/dataset/flickr25k/label.mat", labels)
+# scio.savemat("/home/wangg/code/LCDSPH/dataset/flickr25k/index.mat", index)
+# scio.savemat("/home/wangg/code/LCDSPH/dataset/flickr25k/caption.mat", captions)
+# scio.savemat("/home/wangg/code/LCDSPH/dataset/flickr25k/label.mat", labels)
 
 
 

@@ -48,7 +48,7 @@ print("captions length:", len(captions))
 
 #labels = np.zeros([len(indexs), len(class_index)], dtype=np.int8)
 # label_lists = os.listdir(labelPath)
-with open("/home/wangg/code/DSPH/dataset/used_label.txt", encoding='utf-8') as f:
+with open("/home/wangg/code/dsph/dataset/used_label.txt", encoding='utf-8') as f:
     label_lists = f.readlines()
 label_lists = [item.strip() for item in label_lists]
 
@@ -66,6 +66,9 @@ for item in label_lists:
         data = f.readlines()
     for i, val in enumerate(data):
         labels[i][class_index[class_label]] = 1 if val.strip() == "1" else 0
+        print(class_index)
+        print(class_label)
+        exit()
 print("labels sum:", labels.sum())
 
 not_used_id = []
@@ -96,14 +99,14 @@ indexs = {"index": indexs}
 captions = {"caption": captions}
 labels = {"category": labels}
 
-scio.savemat('/home/wangg/code/DSPH/dataset/nuswide/index.mat', indexs)
-#scio.savemat("/home/wangg/code/DSPH/dataset/nuswide/caption.mat", captions)
-scio.savemat('/home/wangg/code/DSPH/dataset/nuswide/label.mat', labels)
-
-
-captions = [item + "\n" for item in captions["caption"]]
-
-with open('/home/wangg/code/DSPH/dataset/nuswide/caption.txt', "w", encoding='utf-8') as f:
-    f.writelines(captions)
-
-print("finished!")
+# scio.savemat('/home/wangg/code/DSPH/dataset/nuswide/index.mat', indexs)
+scio.savemat("/home/wangg/code/DSPH/dataset/nuswide/caption.mat", captions)
+# scio.savemat('/home/wangg/code/DSPH/dataset/nuswide/label.mat', labels)
+# 
+# 
+# captions = [item + "\n" for item in captions["caption"]]
+# 
+# with open('/home/wangg/code/DSPH/dataset/nuswide/caption.txt', "w", encoding='utf-8') as f:
+    # f.writelines(captions)
+# 
+# print("finished!")

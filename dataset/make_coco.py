@@ -22,10 +22,11 @@ def make_index(jsonData: dict, indexDict: dict):
 
 def check_file_exist(indexDict: dict, file_path: str):
     keys = list(indexDict.keys())
+    
     for item in keys:
         # print(indexDict[item])
         if not os.path.exists(os.path.join(file_path, indexDict[item][0])):
-            print(item, indexDict[item])
+            # print(item, indexDict[item])
             indexDict.pop(item)
         indexDict[item] = os.path.join(file_path, indexDict[item][0])
     return indexDict
@@ -94,6 +95,7 @@ if __name__ == "__main__":
     categroy_ids = {}
     for i, item in enumerate(jsonData['categories']):
         categroy_ids.update({item['id']: i})
+        print(f"Index {i}: Category ID {item['id']}, Name: {item['name']}")
     indexDict = {"annotations": ["image_id", "category_id"], "images": ["id", "file_name"]}
     result = make_index(jsonData, indexDict)
     categoryDict = result[0]
@@ -122,6 +124,7 @@ if __name__ == "__main__":
     with open(val_jsonFile, "r") as f:
          jsonData = json.load(f)
     indexDict = {"images": ["id", "file_name"], "annotations": ["image_id", "caption"]}
+    print(indexDict)
     result = make_index(jsonData, indexDict)
     val_indexDict = result[0]
     val_captionDict = result[1]
@@ -158,9 +161,9 @@ if __name__ == "__main__":
     captions = {"caption": captionList}
     categorys = {"category": categoryList}
 
-    scio.savemat("/home/wangg/DSPH-main/DSPH-main/dataset/coco/index.mat", indexs)
-    scio.savemat("/home/wangg/DSPH-main/DSPH-main/dataset/coco/caption.mat", captions)
-    scio.savemat("/home/wangg/DSPH-main/DSPH-main/dataset/coco/label.mat", categorys)
+    # scio.savemat("/home/wangg/DSPH-main/DSPH-main/dataset/coco/index.mat", indexs)
+    # scio.savemat("/home/wangg/DSPH-main/DSPH-main/dataset/coco/caption.mat", captions)
+    # scio.savemat("/home/wangg/DSPH-main/DSPH-main/dataset/coco/label.mat", categorys)
 
 
 
